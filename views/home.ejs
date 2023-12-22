@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container mt-5">
+
+    <div class="text-center">
+        <% if (locals.joke) { %>
+            <h1 class="my-5 fs-1 mg-b"> <%= joke %></h1>
+        <% } else {%>
+            <h1 class="title display-1 ">Welcome to Humour Haven!</h1>
+            <p class="homeText fs-3">Your one-stop shop for the funniest jokes!</p>
+            <p class="homeText mt-5 fs-3">Please choose if you would like a Safe for work joke or Not safe for work joke</p>
+            <% }%>
+        <% if (locals.setup) { %>
+            <h1 class="my-5 fs-1"> <%= setup %></h1>
+        <% } %>
+
+        <% if (locals.delivery) { %>
+            <h1 class="my-5 fs-1"> <%= delivery %></h1>
+        <% } %>
+    </div>
+
+    <form class="text-center" id="myForm" method="POST">
+        <div>
+            <input class="btn btn-success btn-lg" type="submit" value="Safe for work" formaction="/safe">
+            <input class="btn btn-danger btn-lg" type="submit" value="Not safe for work" formaction="/nsfw">
+        </div>
+    </form>
+
+</div>
+
+<%- include('partials/footer.ejs') %>
